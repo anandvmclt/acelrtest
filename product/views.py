@@ -11,6 +11,9 @@ from cart.cart import Cart
 
 
 # Create your views here.
+def index(request):
+    return redirect('product:homepage')
+
 
 class HomePage(View):
 
@@ -45,7 +48,7 @@ def product(request, slug):
             cart.add(product_id=product.id, quantity=quantity, update_quantity=False)
             messages.success(request, 'The product was added to the cart')
 
-            url = '/product/' + str(slug)
+            url = '/shop/product/' + str(slug)
             return redirect(url)
 
         messages.error(request, 'The product adding failed..!')

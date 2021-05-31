@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import path,include
 from django.conf.urls.static import static
+from product.views import index
 
 urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')), # new
@@ -24,6 +25,7 @@ urlpatterns = [
     path('adminapp/', include('adminapp.urls')),
     path('users/', include('user.urls')),
     path('cart/', include('cart.urls')),
-    path('', include('product.urls')),
+    path('shop/', include('product.urls')),
+    path('', index, name='index')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

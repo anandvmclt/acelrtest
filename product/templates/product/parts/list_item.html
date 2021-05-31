@@ -1,4 +1,10 @@
 <div class="column is-3 product-list-item">
+
+     {% if messages %}
+        {% for message in messages %}
+            <div class="notification is-success is-toast">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
     <div class="box">
         <figure class="image is-4by3 mb-4">
             <img src="{{ product.image.url }}">
@@ -10,10 +16,10 @@
 
         <hr>
 
-          <form method="post" action="/{{product.slug}}">
+          <form method="post" action="/shop/{{product.slug}}">
              {% csrf_token %}
                 <div class="control">
-                    <a href="/product/{{product.slug}}" class="button is-dark is-uppercase">View</a>
+                    <a href="/shop/product/{{product.slug}}" class="button is-dark is-uppercase">View</a>
                     <input type="hidden" name="quantity" value="{{product.slug}}">
                     <button class="button is-info is-uppercase">Add to cart</button>
                 </div>
