@@ -23,12 +23,14 @@ def search(request):
 
     return render(request, 'adminapp/search.html', {'users': users, 'query': query})
 
-#Admin Home Page
-class AdminHome(View):
-    def get(self, request):
-        return render(request, 'adminapp/home.html')
 
-#Lias all users
+# Admin Home Page
+@login_required()
+def adminHome(request):
+    return render(request, 'adminapp/home.html')
+
+
+# Lias all users
 @login_required()
 def listUsers(request):  # List all Customers
     users = User.objects.filter(is_staff=False)
