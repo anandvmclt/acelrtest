@@ -1,0 +1,62 @@
+{% extends 'adminapp/base.html' %}
+
+{% block title %} AdminApp - Anand Test case {% endblock %}
+
+{% block content %}
+<div class="row">
+	<h2>
+	This is the list of Users registered
+					</h2>
+		<div class="col-sm-12">
+		    {% if messages %}
+				{% for message in messages %}
+					<div class="notification is-success is-toast">{{ message }}</div>
+				{% endfor %}
+  		  {% endif %}
+			<div class="card mb-0">
+				<div class="card-header">
+					<h4 class="card-title mb-0">.</h4>
+
+				</div>
+				<div class="card-body">
+
+					<div class="table-responsive">
+						<table class="datatable table table-stripped mb-0">
+							<thead>
+								<tr>
+									<th>SL</th>
+									<th>Username</th>
+									<th>Name</th>
+									<th>Email</th>
+									<th>Mobile </th>
+									<th>Address</th>
+									<th>Edit User </th>
+								</tr>
+							</thead>
+							<tbody>
+							{% for user in users %}
+								<tr>
+									<td> {{forloop.counter}}  </td>
+									<td> {{user.username}} </td>
+									<td>{{user.first_name}}</td>
+									<td>{{user.email}}</td>
+									<td>{{user.mobile}}</td>
+									<td> {{user.address}}</td>
+
+									 <td>  <form method="get" action="/adminapp/{{user.id}}/update">
+
+										 <button type="submit" class="btn btn-danger btn-sm">Edit </button>
+									 </form> </td>
+
+
+
+								</tr>
+							{% endfor %}
+							</tbody>
+						</table>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+        </div>
+{% endblock %}

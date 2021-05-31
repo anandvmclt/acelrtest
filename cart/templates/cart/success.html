@@ -1,0 +1,14 @@
+{% extends 'product/base.html' %}
+
+{% block title %}Success | {% endblock %}
+
+{% block content %}
+
+      {% if messages %}
+        {% for message in messages %}
+            <div class="notification is-success is-toast">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <h1 class="title">Thanks for the order</h1>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'adminapp/base.html' %}
+
+{% block title %} AdminApp - Anand Test case {% endblock %}
+
+{% block content %}
+    <h1 class="title">Welcome to Admin Home  </h1>
+    <div class row col-md-6>
+        <ul class="list-group">
+        <li class="list-group-item active">
+            <a href="/adminapp/listusers"> View Users </a> </li>
+        <li class="list-group-item">
+            <a href="/adminapp/order"> View Orders </a> </li>
+
+      </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'adminapp/base.html' %}
+
+{% block title %}Search | Anand - Test Case {% endblock %}
+
+{% block content %}
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <div class="columns is-multiline mb-6">
+        <div class="column is-12 has-text-centered mt-6 mb-6">
+            <h2 class="is-size-3">Search</h2>
+            <h3>Search term: "{{ query }}"</h3>
+        </div>
+
+        {% for user in users %}
+         <div class="card p-2 m-2" style="width: 18rem;">
+          <div class="card-body">
+            <h4 class="card-title">Name: {{user.first_name}} </h4>
+             <p class="card-text">Username: {{user.username}}</p>
+              <p class="card-text">Email: {{user.email}}</p>
+              <p class="card-text">Mobile: {{user.mobile}}</p>
+              <p class="card-text">Address: {{user.address}}</p>
+               <form method="get" action="/adminapp/{{user.id}}/update">
+                <button type="submit" class="btn btn-primary">Update User</button>
+               </form>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock %}
